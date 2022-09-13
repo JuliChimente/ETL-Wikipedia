@@ -7,7 +7,9 @@ from constants import *
 
 def obtener_dominio():
     """ Obtiene el dominio solicitado devolviendolo en string """
+    # Extrae el contenido del URL
     soup = BeautifulSoup(requests.get(URL).content, 'html.parser')
+    # Transforma el contenido en string y elimina la etiqueta <b>
     dominio = etree.HTML(str(soup).replace('<b>', '').replace('</b>', ''))
 
     return dominio
@@ -23,7 +25,7 @@ def obtener_data_jugador(dominio, num_jugador):
 
 
 def transformar_posicion_jugador(data_jugador, posicion_anterior):
-    """ Función para reemplazar (pos == "=") por la pos real """
+    """ Función para reemplazar (pos == "=") por la posicion real """
     if data_jugador[2] == '=':
         data_jugador[2] = posicion_anterior
 
@@ -34,6 +36,7 @@ def generar_dataframe():
     """ Genera y retorna un DataFrame de acuerdo a lo solicitado """
     df = pd.DataFrame(columns=COLUMNAS_DATAFRAME)
     dominio_tabla = obtener_dominio()
+    # Declaramos posicion anterior con un default por si no se le envia ningun valor
     posicion_anterior = ''
 
     for i in range(CANTIDAD_JUGADORES):
