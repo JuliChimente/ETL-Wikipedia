@@ -8,7 +8,7 @@ En el apartado de requirements podemos revisar todo lo necesario para ejecutar s
 
 # Despliegue 📦
 
-Para realizar la ejecucion de nuestro programa basta con correr nuestro codigo, y automaticamente nos devolvera nuestro output,
+Para realizar la ejecucion de nuestro programa basta con correr nuestro codigo, y automaticamente nos devolvera nuestro output.
 
 # Construido con 🛠️
 
